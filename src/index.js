@@ -32,13 +32,30 @@ function processData(responseJSON){
     return {condition, temp, wind, humidity, time}
 }
 
+function displayData(processedData){
+    const conditionDisplay = document.querySelector("#condition");
+    conditionDisplay.textContent = processedData.condition;
+    const tempDisplay = document.querySelector("#temp");
+    tempDisplay.textContent = processedData.temp;
+    const windDisplay = document.querySelector("#wind");
+    windDisplay.textContent = processedData.wind;
+    const humidityDisplay = document.querySelector("#humidity");
+    humidityDisplay.textContent = processedData.humidity
+    const timeDisplay = document.querySelector("#time");
+    timeDisplay.textContent = processedData.time;
+    //const locationDisplay = document.querySelector("#location");
+
+
+}
+
 function init(){
     let locationInput;
     document.querySelector("#searchBtn").addEventListener("click", async()=>{
         locationInput = document.querySelector("#searchBar").value;
         console.log(locationInput);
         const data = await getData(locationInput);
-        console.log(data);
+        //console.log(data);
+        displayData(data);
     })
 }
 
