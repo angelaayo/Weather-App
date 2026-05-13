@@ -11,19 +11,36 @@
         <input type="text" id="searchBar" placeholder="Enter Location">
         <button id="searchBtn">Search</button>
       </div>
+      <div id="condition">Condition</div>
+      <img id="displayImg">
+
       <div id="resultDisplay">
+        <div id="temp"></div>
         <div id="weatherInfo">
-          <div id="condition">Condition</div>
-          <div id="temp">Temp</div>
-          <div>
-            <span id="wind">wind</span>
-            <span id="humidity">humidity</span>
+          <div>Details</div>
+          <div class="detail">
+            <span>Feels Like</span>
+            <span id="feelsLike"></span>
           </div>
-          <div id="time">time</div>
-          <div id="location">Location</div>
+          <div class="detail">
+            <span>Humidity</span>
+            <span id="humidity"></span>
+          </div>
+          <div class="detail">
+            <span>Wind</span>
+            <span id="wind"></span>
+          </div>
+          <div class="detail">
+            <span>Visibility</span>
+            <span id="visibility"></span>
+          </div>
         </div>
-        <img id="displayImg">
       </div>
+
+      <div id="day"></div>
+      <div id="timePeriod"></div>
+
+
     </main>
   </body>
 </html>

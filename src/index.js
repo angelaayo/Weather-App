@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import "./style.css";
+import {format, addHours} from 'date-fns'
 
 //key: DT7QBEARA3MCHQDNWFQCPGWVJ
 //temp feels like humidity and wind
@@ -29,10 +30,11 @@ function processData(responseJSON){
     const wind = responseJSON.currentConditions.windspeed;
     const humidity = responseJSON.currentConditions.humidity;
     const time = responseJSON.currentConditions.datetime;
-    return {condition, temp, wind, humidity, time}
+    const icon = responseJSON.currentConditions.icon;
+    return {condition, temp, wind, humidity, time, icon}
 }
 
-function displayData(processedData){
+async function displayData(processedData){
     const conditionDisplay = document.querySelector("#condition");
     conditionDisplay.textContent = processedData.condition;
     const tempDisplay = document.querySelector("#temp");
@@ -41,11 +43,17 @@ function displayData(processedData){
     windDisplay.textContent = processedData.wind;
     const humidityDisplay = document.querySelector("#humidity");
     humidityDisplay.textContent = processedData.humidity
-    const timeDisplay = document.querySelector("#time");
-    timeDisplay.textContent = processedData.time;
+    //const timeDisplay = document.querySelector("#time");
+    //const today = format(new Date(2014, 1, 11), "MM/dd/yyyy");
+    //timeDisplay.textContent = addHours(today, 5).toString();
     //const locationDisplay = document.querySelector("#location");
+    const imgHolder = document.querySelector("#displayImg");
+    imgHolder.src = await getIcon(processedData.icon);
+}
 
-
+async function getIcon(iconName){
+  const icon = await import(`./icons/${iconName}.png`)
+  return icon.default;
 }
 
 function init(){
@@ -59,4 +67,6 @@ function init(){
     })
 }
 
+
 init();
+
