@@ -3,6 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap" rel="stylesheet">
     <title>Document</title>
   </head>
   <body>
@@ -15,24 +18,28 @@
       <img id="displayImg">
 
       <div id="resultDisplay">
-        <div id="temp"></div>
+        <div class="tempInfo">
+          <div id="temp"></div>
+          <span class="symbol">0</span>
+          <span>F</span>
+        </div>
         <div id="weatherInfo">
           <div>Details</div>
           <div class="detail">
             <span>Feels Like</span>
-            <span id="feelsLike"></span>
+            <span id="feelsLike" class="info"></span>
           </div>
           <div class="detail">
             <span>Humidity</span>
-            <span id="humidity"></span>
+            <span id="humidity" class="info"></span>
           </div>
           <div class="detail">
             <span>Wind</span>
-            <span id="wind"></span>
+            <span id="wind" class="info"></span>
           </div>
           <div class="detail">
             <span>Visibility</span>
-            <span id="visibility"></span>
+            <span id="visibility" class="info"></span>
           </div>
         </div>
       </div>
